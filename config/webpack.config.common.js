@@ -59,8 +59,10 @@ const webpackConfig = {
                     {
                         loader: 'file-loader',
                         options: {
+                            name: "[name].[ext]",
                             limit: 8192,
                             outputPath: 'images',
+                            esModule: false
                         },
                     },
                 ],

@@ -1,15 +1,15 @@
 'use strict';
 
-const webpack                  = require('webpack');
-const merge                    = require('webpack-merge');
-const OptimizeCSSAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
-const MiniCSSExtractPlugin     = require('mini-css-extract-plugin');
-const UglifyJSPlugin           = require('uglifyjs-webpack-plugin');
-const CompressionPlugin        = require('compression-webpack-plugin');
-const helpers                  = require('./helpers');
-const commonConfig             = require('./webpack.config.common');
-const isProd                   = process.env.NODE_ENV === 'production';
-const environment              = isProd ? require('./env/prod.env') : require('./env/staging.env');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const helpers = require('./helpers');
+const commonConfig = require('./webpack.config.common');
+const isProd = process.env.NODE_ENV === 'production';
+const environment = isProd ? require('./env/prod.env') : require('./env/staging.env');
 
 const webpackConfig = merge(commonConfig, {
     mode: 'production',
@@ -24,7 +24,7 @@ const webpackConfig = merge(commonConfig, {
         minimizer: [
             new OptimizeCSSAssetsPlugin({
                 cssProcessorPluginOptions: {
-                    preset: [ 'default', { discardComments: { removeAll: true } } ],
+                    preset: ['default', { discardComments: { removeAll: true } }],
                 }
             }),
             new UglifyJSPlugin({
@@ -40,7 +40,7 @@ const webpackConfig = merge(commonConfig, {
             cacheGroups: {
                 vendor: {
                     test: /[\\/]node_modules[\\/]/,
-                    name (module) {
+                    name(module) {
                         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
                         return `npm.${packageName.replace('@', '')}`;
                     }

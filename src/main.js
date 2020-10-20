@@ -5,7 +5,7 @@ import VueRouter from 'vue-router';
 // Import Vue App, routes, store
 import App from './App';
 import routes from './routes';
-import './assets/css/index.css'
+import './assets/scss/index.scss';
 
 Vue.use(VueRouter);
 // Configure router

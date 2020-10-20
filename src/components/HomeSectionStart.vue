@@ -1,9 +1,5 @@
 <template>
-  <section
-    class="home"
-    id="home"
-    :style="{ backgroundImage: 'url(' + bannerImg + ')' }"
-  >
+  <section class="home" id="home">
     <div class="max-width">
       <div class="home-content">
         <div class="text-1">Hello, my name is</div>
