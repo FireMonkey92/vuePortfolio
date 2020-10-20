@@ -1,5 +1,4 @@
 import LandingPage from '@/pages/LandingPage.vue';
-// const AppMedium = () => import('@/components/AppMedium');
 
 const routes = [
     {

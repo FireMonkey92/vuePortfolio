@@ -308,6 +308,9 @@ section .title::after{
 
 /* skills section styling */
 
+#skills{
+    height: 100vh;
+}
 .skills .title::after{
     content: "what i know";
 }
@@ -636,6 +639,9 @@ footer span a:hover{
     .services .serv-content .card{
         width: calc(50% - 10px);
         margin-bottom: 20px;
+    }
+    #skills{
+        height: auto;
     }
     .skills .skills-content .column,
     .contact .contact-content .column{
