@@ -20,7 +20,6 @@
   "homepage": "https://github.com/FireMonkey92/vuejs-boilder-plate.git",
   "dependencies": {
     "@babel/polyfill": "~7.2",
-    "url-loader": "^4.1.1",
     "vue": "~2.6",
     "vue-router": "~3.0"
   },
