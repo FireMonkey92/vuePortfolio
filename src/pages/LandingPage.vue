@@ -1,13 +1,13 @@
 <template>
   <div>
-    <NavBar />
-    <HomeSectionStart />
-    <AboutSection />
+    <NavBar @handleThemeChange="handleThemeChange" />
+    <HomeSectionStart :isDarkMode="isDarkMode ? isDarkMode : false" />
+    <AboutSection :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Services />
-    <Skills />
+    <Skills :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Team />
-    <Contact />
-    <Footer />
+    <Contact :isDarkMode="isDarkMode ? isDarkMode : false" />
+    <Footer :isDarkMode="isDarkMode ? isDarkMode : false" />
   </div>
 </template>
 
@@ -33,14 +33,32 @@ export default {
     Contact,
     Footer,
   },
+  data() {
+    return {
+      isDarkMode:
+        localStorage.getItem("THEME") !== null
+          ? localStorage.getItem("THEME") === "dark-theme"
+            ? true
+            : false
+          : false,
+    };
+  },
+  methods: {
+    handleThemeChange(valueFromChild) {
+      console.log("valueFromChild", valueFromChild);
+      this.isDarkMode = valueFromChild;
+    },
+  },
   mounted() {
     // navbar animation
     $(window).scroll(function () {
       // sticky navbar on scroll script
       if (this.scrollY > 20) {
-        $(".navbar").addClass("sticky");
+        if (localStorage.getItem("THEME") === "dark-theme")
+          $("#navbar").addClass("dark-sticky");
+        else $("#navbar").addClass("sticky");
       } else {
-        $(".navbar").removeClass("sticky");
+        $("#navbar").removeClass();
       }
       // scroll-up button show/hide script
       if (this.scrollY > 500) {
@@ -55,8 +73,7 @@ export default {
       // removing smooth scroll on slide-up button click
       $("html").css("scrollBehavior", "auto");
     });
-
-    $(".navbar .menu li a").click(function () {
+    $("#navbar .menu li a").click(function () {
       // applying again smooth scroll on menu items click
       $("html").css("scrollBehavior", "smooth");
     });

@@ -1,6 +1,6 @@
 
 <template>
-  <section class="contact" id="contact">
+  <section class="contact" id="contact" :class="isDarkMode && ' dark-theme'">
     <div class="max-width">
       <h2 class="title">Contact me</h2>
       <div class="contact-content">
@@ -61,7 +61,7 @@
               ></textarea>
             </div>
             <div class="button">
-              <button type="submit">Send message</button>
+              <button class="btn-primary">Send message</button>
             </div>
           </form>
         </div>
@@ -72,8 +72,11 @@
 <script>
 export default {
   name: "Contact",
+  props: ["isDarkMode"],
   data() {
-    return {};
+    return {
+      isDarkMode: false,
+    };
   },
 };
 </script>

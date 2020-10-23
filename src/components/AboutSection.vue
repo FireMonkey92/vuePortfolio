@@ -1,5 +1,5 @@
 <template>
-  <section class="about" id="about">
+  <section class="about" id="about" :class="isDarkMode && ' dark-theme'">
     <div class="max-width">
       <h2 class="title">About me</h2>
       <div class="about-content">
@@ -30,9 +30,11 @@
 import prof1 from "../assets/images/profile-1.jpeg";
 export default {
   name: "AboutSection",
+  props: ["isDarkMode"],
   data() {
     return {
       prof1: prof1,
+      isDarkMode: false,
     };
   },
   mounted() {
