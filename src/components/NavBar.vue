@@ -22,7 +22,9 @@
                 v-bind:checked="isDarkMode"
                 v-on:change="handhleChange"
               />
-              <span class="slider round"></span>
+              <span class="slider round">
+                <i class="fas" :class="isDarkMode ? ' fa-moon' : ' fa-sun'"></i>
+              </span>
             </label>
           </li>
         </ul>
@@ -74,8 +76,10 @@ export default {
           $("#navbar").addClass("sticky");
           $("#navbar .menu").addClass("bgLite");
         }
+      } else {
+        if (e.target.checked) $("#navbar .menu").removeClass("bgLite");
+        else $("#navbar .menu").addClass("bgLite");
       }
-
       this.$emit("handleThemeChange", e.target.checked);
     },
   },

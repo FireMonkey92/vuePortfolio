@@ -34,7 +34,6 @@ export default {
   data() {
     return {
       prof1: prof1,
-      isDarkMode: false,
     };
   },
   mounted() {

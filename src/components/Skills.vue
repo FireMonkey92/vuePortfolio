@@ -1,7 +1,4 @@
-
-
-
-    <template>
+<template>
   <section class="skills" id="skills" :class="isDarkMode && ' dark-theme'">
     <div class="max-width">
       <h2 class="title">My skills</h2>
@@ -63,10 +60,5 @@
 export default {
   name: "Skills",
   props: ["isDarkMode"],
-  data() {
-    return {
-      isDarkMode: false,
-    };
-  },
 };
 </script>

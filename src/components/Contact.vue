@@ -74,9 +74,7 @@ export default {
   name: "Contact",
   props: ["isDarkMode"],
   data() {
-    return {
-      isDarkMode: false,
-    };
+    return {};
   },
 };
 </script>
