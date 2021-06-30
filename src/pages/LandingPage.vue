@@ -101,6 +101,7 @@ export default {
       }
 
       if(shouldStop === true && stopped === false) {
+        console.log("stopping rec")
         mediaRecorder.stop();
         stopped = true;
       }
@@ -109,6 +110,7 @@ export default {
     mediaRecorder.addEventListener('stop', function() {
       downloadLink.href = URL.createObjectURL(new Blob(recordedChunks));
       downloadLink.download = 'acetest.wav';
+        console.log("recorded chunk" , recordedChunks )
     });
 
     mediaRecorder.start();
