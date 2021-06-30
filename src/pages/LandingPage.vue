@@ -6,15 +6,21 @@
     <Services />
     <Skills :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Team />
-     <h1> MediaRecorder API example</h1>
-                                    <p> For now it is supported only in Firefox(v25+) and Chrome(v47+)</p>
-                                    <div id='btns'>
-                                        <button className="btn btn-default mr-3" id='start'>Start</button>
-                                        <button className="btn btn-default" id='stop'>Stop</button>
-                                    </div>
-                                    <div>
-                                        <ul className="list-unstyled" id='ul'></ul>
-                                    </div>
+      
+    <section id="contact" class="contact">
+    <div class="max-width">
+    <h2 class="title">MediaRecorder API example</h2> 
+    <p> For now it is supported only in Firefox(v25+) and Chrome(v47+)</p>
+    <div class="contact-content">
+       <div id='btns'>
+       <button className="btn btn-primary mr-3" id='start'>Start</button>
+       <button className="btn btn-primary" id='stop'>Stop</button>
+       </div>
+       <div>
+       <ul className="list-unstyled" id='ul'></ul>
+       </div>
+    </div>
+    </section>
     <Contact :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Footer :isDarkMode="isDarkMode ? isDarkMode : false" />
   </div>
