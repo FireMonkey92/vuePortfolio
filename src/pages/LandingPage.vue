@@ -6,21 +6,6 @@
     <Services />
     <Skills :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Team />
-      
-    <section id="contact" class="contact">
-    <div class="max-width">
-    <h2 class="title">MediaRecorder API example</h2> 
-    <p> For now it is supported only in Firefox(v25+) and Chrome(v47+)</p>
-    <div class="contact-content">
-       <div id='btns'>
-       <button className="btn btn-primary mr-3" id='start'>Start</button>
-       <button className="btn btn-primary" id='stop'>Stop</button>
-       </div>
-       <div>
-       <ul className="list-unstyled" id='ul'></ul>
-       </div>
-    </div>
-    </section>
     <Contact :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Footer :isDarkMode="isDarkMode ? isDarkMode : false" />
   </div>
@@ -91,77 +76,7 @@ export default {
     $("#navbar .menu li a").click(function () {
       // applying again smooth scroll on menu items click
       $("html").css("scrollBehavior", "smooth");
-    });
-  
-  //VOICE RECORDING API
-  
-  // DOM and Variables
-        let log = console.log.bind(console),
-            id = val => document.getElementById(val),
-            ul = id('ul'),
-            start = id('start'),
-            stop = id('stop'),
-            stream,
-            recorder,
-            counter = 1,
-            chunks,
-            media;
-
-        // Initialize RecordApi
-        let mediaOptions = {
-            audio: {
-                tag: 'audio',
-                type: 'audio/ogg',
-                ext: '.ogg',
-                gUM: { audio: true }
-            }
-        };
-        media = mediaOptions.audio;
-        navigator.mediaDevices.getUserMedia(media.gUM).then(_stream => {
-            stream = _stream;
-            id('btns').style.display = 'inherit';
-            start.removeAttribute('disabled');
-            recorder = new MediaRecorder(stream);
-            recorder.ondataavailable = e => {
-                chunks.push(e.data);
-                if (recorder.state == 'inactive') makeLink();
-            };
-            log('got media successfully');
-        }).catch(log);
-
-        // Initiate Char Recording
-        start.onclick = e => {
-            start.disabled = true;
-            stop.removeAttribute('disabled');
-            chunks = [];
-            recorder.start();
-        }
-        //  Stopped Chat Recording
-        stop.onclick = e => {
-            stop.disabled = true;
-            recorder.stop();
-            start.removeAttribute('disabled');
-        }
-
-        // append Download Link to the dom
-        function makeLink() {
-            let blob = new Blob(chunks, { type: media.type })
-                , url = URL.createObjectURL(blob)
-                , li = document.createElement('li')
-                , mt = document.createElement(media.tag)
-                , hf = document.createElement('a')
-                ;
-            mt.controls = true;
-            mt.src = url;
-            hf.href = url;
-            hf.download = `${counter++}${media.ext}`;
-            hf.innerHTML = `donwload ${hf.download}`;
-            li.appendChild(mt);
-            li.appendChild(hf);
-            ul.appendChild(li);
-        }
-  
-      
+    });      
   },
 };
 </script>
