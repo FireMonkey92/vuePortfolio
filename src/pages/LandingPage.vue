@@ -92,25 +92,23 @@ export default {
   
    const Talk = chatImportHandler();
    Talk.ready.then(function () {
-      _this.popup = null
-      var user = new Talk.User({
-        userid: `${currantUser.userid}`,
-        imageURL: imageURL !== "" && imageURL !== null ? `${imageURL}` : getDefaultProfPic()
-        // welcomeMessage: "Hey there! How are you? :-)"
-      });
-      var other = new Talk.User({
-        userid: `${provider.userid}`,
-        imageURL: provider.imageURL !== "" && provider.imageURL !== null ? `${provider.imageURL}` : getDefaultProfPic()
-        // welcomeMessage: "Hey there! How are you? :-)"
-      });
-      var session = new Talk.Session({
-        appid: CHATM_APPID,
-        user: user
-      })
-      var conversation = session.getOrCreateConversation([user, other])
-      var popup = new session.createPopup(conversation)
-      popup.mount({show : true})    
-  }  
+			var user = new Talk.User({
+				userid: "sugam479",
+				imageURL: "https://www.nayichetana.com/wp-content/uploads/2016/10/bharat-jpg.jpg",
+			});
+			var other = new Talk.User({
+				userid: "sugam480",
+				imageURL: "https://static.toiimg.com/thumb/msid-74008732,imgsize-122456,width-800,height-600,resizemode-75/74008732.jpg",
+			});
+			var session = new Talk.Session({
+				appid: "iEQII3jHR8nMq99tfByfprMKf1ad0d",
+				user: user
+			})
+			var conversation = session.getOrCreateConversation([user, other])
+			var popup = new session.createPopup(conversation)
+			popup.mount({ show: true })
+			/* two function hide and show to controll widget after successfully loading */
+		})  
   },
 };
 </script>
