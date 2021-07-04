@@ -9,6 +9,8 @@
     <Contact :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Footer :isDarkMode="isDarkMode ? isDarkMode : false" />
   </div>
+  <div id="chatmonday-container">
+	</div>
 </template>
 
 <script>
@@ -77,6 +79,38 @@ export default {
       // applying again smooth scroll on menu items click
       $("html").css("scrollBehavior", "smooth");
     });      
+    
+    
+       chatImportHandler = () => {
+    (function (t, a, s, k, p) {
+      k = t.Promise; s = a.createElement("script"); s.src = `https://helenzystech.com/utm/talk_init.js`; s.async = true; a.head.appendChild(s);
+      t.Talk = { v: 1, ready: { then: async function (f) { p = new k((res, rej) => { s.onload = res; s.onerror = rej; }); await k.all([p]); if (typeof f == "function") f(); } } };
+    })(window, document);
+    if (window.Talk)
+      return window.Talk;
+  }
+  
+   const Talk = chatImportHandler();
+   Talk.ready.then(function () {
+      _this.popup = null
+      var user = new Talk.User({
+        userid: `${currantUser.userid}`,
+        imageURL: imageURL !== "" && imageURL !== null ? `${imageURL}` : getDefaultProfPic()
+        // welcomeMessage: "Hey there! How are you? :-)"
+      });
+      var other = new Talk.User({
+        userid: `${provider.userid}`,
+        imageURL: provider.imageURL !== "" && provider.imageURL !== null ? `${provider.imageURL}` : getDefaultProfPic()
+        // welcomeMessage: "Hey there! How are you? :-)"
+      });
+      var session = new Talk.Session({
+        appid: CHATM_APPID,
+        user: user
+      })
+      var conversation = session.getOrCreateConversation([user, other])
+      var popup = new session.createPopup(conversation)
+      popup.mount({show : true})    
+  }  
   },
 };
 </script>
