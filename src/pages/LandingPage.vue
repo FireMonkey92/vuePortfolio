@@ -9,8 +9,6 @@
     <Contact :isDarkMode="isDarkMode ? isDarkMode : false" />
     <Footer :isDarkMode="isDarkMode ? isDarkMode : false" />
   </div>
-  <div id="chatmonday-container">
-	</div>
 </template>
 
 <script>
@@ -78,37 +76,7 @@ export default {
     $("#navbar .menu li a").click(function () {
       // applying again smooth scroll on menu items click
       $("html").css("scrollBehavior", "smooth");
-    });      
-    
-    
-     const   chatImportHandler = () => {
-    (function (t, a, s, k, p) {
-      k = t.Promise; s = a.createElement("script"); s.src = `https://helenzystech.com/utm/talk_init.js`; s.async = true; a.head.appendChild(s);
-      t.Talk = { v: 1, ready: { then: async function (f) { p = new k((res, rej) => { s.onload = res; s.onerror = rej; }); await k.all([p]); if (typeof f == "function") f(); } } };
-    })(window, document);
-    if (window.Talk)
-      return window.Talk;
-  }
-  
-   const Talk = chatImportHandler();
-   Talk.ready.then(function () {
-			var user = new Talk.User({
-				userid: "sugam479",
-				imageURL: "https://www.nayichetana.com/wp-content/uploads/2016/10/bharat-jpg.jpg",
-			});
-			var other = new Talk.User({
-				userid: "sugam480",
-				imageURL: "https://static.toiimg.com/thumb/msid-74008732,imgsize-122456,width-800,height-600,resizemode-75/74008732.jpg",
-			});
-			var session = new Talk.Session({
-				appid: "iEQII3jHR8nMq99tfByfprMKf1ad0d",
-				user: user
-			})
-			var conversation = session.getOrCreateConversation([user, other])
-			var popup = new session.createPopup(conversation)
-			popup.mount({ show: true })
-			/* two function hide and show to controll widget after successfully loading */
-		})  
+    });
   },
 };
 </script>
