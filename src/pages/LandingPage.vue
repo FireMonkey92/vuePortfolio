@@ -105,9 +105,7 @@ export default {
 			var popup = new session.createPopup(conversation)
 			popup.mount({ show: true })
 			/* two function hide and show to controll widget after successfully loading */
-		})  
-    });
-    
+		})      
   },
 };
 </script>
