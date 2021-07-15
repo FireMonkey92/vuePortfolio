@@ -95,7 +95,7 @@ export default {
  				imageURL: "https://www.nayichetana.com/wp-content/uploads/2016/10/bharat-jpg.jpg",
                 });
                 let session = new Talk.Session({
-                    appid: UQrOcrSdjYPEHvNKanZfGMyjOzEucw,
+                    appid: "UQrOcrSdjYPEHvNKanZfGMyjOzEucw",
                     user: initUser
                 })
                 if (childCounts === 1)
