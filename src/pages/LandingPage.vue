@@ -88,24 +88,24 @@ export default {
   }
   
    const Talk = chatImportHandler();
-   Talk.ready.then(function () {
-			var user = new Talk.User({
-				userid: "sugam581",
-				imageURL: "https://www.nayichetana.com/wp-content/uploads/2016/10/bharat-jpg.jpg",
-			});
-			var other = new Talk.User({
-				userid: "sugam580",
-				imageURL: "https://static.toiimg.com/thumb/msid-74008732,imgsize-122456,width-800,height-600,resizemode-75/74008732.jpg",
-			});
-			var session = new Talk.Session({
-				appid: "UQrOcrSdjYPEHvNKanZfGMyjOzEucw",
-				user: user
-			})
-			var conversation = session.getOrCreateConversation([user, other])
-			var popup = new session.createPopup(conversation)
-			popup.mount({ show: true })
-			/* two function hide and show to controll widget after successfully loading */
-		})      
+//   Talk.ready.then(function () {
+// 			var user = new Talk.User({
+// 				userid: "sugam581",
+// 				imageURL: "https://www.nayichetana.com/wp-content/uploads/2016/10/bharat-jpg.jpg",
+// 			});
+// 			var other = new Talk.User({
+// 				userid: "sugam580",
+// 				imageURL: "https://static.toiimg.com/thumb/msid-74008732,imgsize-122456,width-800,height-600,resizemode-75/74008732.jpg",
+// 			});
+// 			var session = new Talk.Session({
+// 				appid: "UQrOcrSdjYPEHvNKanZfGMyjOzEucw",
+// 				user: user
+// 			})
+// 			var conversation = session.getOrCreateConversation([user, other])
+// 			var popup = new session.createPopup(conversation)
+// 			popup.mount({ show: true })
+// 			/* two function hide and show to controll widget after successfully loading */
+// 		})      
   },
 };
 </script>
