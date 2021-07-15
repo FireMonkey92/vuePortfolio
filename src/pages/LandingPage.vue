@@ -98,8 +98,8 @@ export default {
                     appid: "UQrOcrSdjYPEHvNKanZfGMyjOzEucw",
                     user: initUser
                 })
-                if (childCounts === 1)
                     session.initConversations({ keepOpen: true });
+                
             })
    
   // Talk.ready.then(function () {
